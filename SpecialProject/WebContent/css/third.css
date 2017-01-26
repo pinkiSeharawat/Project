@@ -1,0 +1,13 @@
+body {
+	background-color:lightgrey;
+	text-align:center;
+	margin-top:15%;
+}
+p.one{
+	text-align:center;
+
+	     border: 5px solid black;
+	        padding: 10px 40px; 
+	          border-radius: 25px;
+	         background-color:white; 
+}
