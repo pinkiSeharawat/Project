@@ -65,7 +65,7 @@ public class PersonalInfoDBAccess  {
 		try {
 			
 			
-			PreparedStatement ps=con.prepareStatement("insert into personalInfo values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps=con.prepareStatement("insert into personalinfo values(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		    
 			ps.setInt(1,personalInfo.getId());
 			ps.setString(2,personalInfo.getCustomerName());
@@ -97,7 +97,7 @@ public class PersonalInfoDBAccess  {
 		Connection con =MyDButil.getConnection();
 		PersonalInfo personal=new PersonalInfo();
 		try {
-			PreparedStatement ps=con.prepareStatement("select * from PersonalInfo where id=?");
+			PreparedStatement ps=con.prepareStatement("select * from personalinfo where id=?");
 			ps.setInt(1,iD);
 		    ResultSet rs=ps.executeQuery();
 		    

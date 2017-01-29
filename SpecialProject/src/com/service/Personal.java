@@ -64,8 +64,8 @@ public class Personal extends HttpServlet {
 		personalInfo.setAMC(Double.parseDouble(request.getParameter("amc")));
 		personalInfo.setTotalAmount(Double.parseDouble(request.getParameter("totalAmount")));
 		
-		//PersonalInfoDBAccess personalInfoDB = new PersonalInfoDBAccess();
-      //  personalInfoDB.insertPersonalDetails(personalInfo);
+		PersonalInfoDBAccess personalInfoDB = new PersonalInfoDBAccess();
+        personalInfoDB.insertPersonalDetails(personalInfo);
 		session.setAttribute("personalInfo", personalInfo);
         
         System.out.println("goyyyy");

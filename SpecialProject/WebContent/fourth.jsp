@@ -16,6 +16,9 @@
 </head>
 <body>
 <h1 align="center"> User Details</h1>
+<button value="Edit"><a href="EditServlet" style=" color:white; text-align:center; text-decoration: none;">Edit</a></button>
+<button value="Delete"><a href="DeleteServlet" style=" color:white; text-decoration: none;">View User</a></button>
+
 <table border="1" cellspacing="2" cellpadding ="2" style="border:none;" >
 <!-- <tr> -->
 <!-- <th> Personal Information </th> </tr> -->

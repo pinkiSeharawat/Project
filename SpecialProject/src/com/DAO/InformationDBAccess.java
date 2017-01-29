@@ -12,7 +12,7 @@ import com.util.MyDButil;
 
 public class InformationDBAccess {
 
-	public int update(PersonalInfo personalInfo)
+	public static int update(PersonalInfo personalInfo)
 	{
 		int status=0;
 		
@@ -20,12 +20,11 @@ public class InformationDBAccess {
 		
 		try {
 			PreparedStatement ps=con.prepareStatement("Update personalinfo set mobileNumber=?,numberoftimesrepaired=?,"
-					+ "totalamount=? where id=? and where customerName=?");
+					+ "totalamount=? where serialNumber=? and where customerName=?");
 			
 			ps.setString(1,personalInfo.getMobileNumber());
 			ps.setInt(2,personalInfo.getNumberOfTimesRepaired());
 			ps.setDouble(3,personalInfo.getTotalAmount());
-			ps.setString(5,personalInfo.getCustomerName());
 			
 			status=ps.executeUpdate();
 			
@@ -40,19 +39,17 @@ public class InformationDBAccess {
 	}
 	
 	
-	public int delete(int id, String customerName)
+	public static int delete(String mobileNumber, String serialNumber)
 	
 	{
-		int status=0;
-		
 		Connection con=MyDButil.getConnection();
-		
-		PreparedStatement ps;
+		int status=0;
+		PreparedStatement ps=null;
 		try {
-			ps = con.prepareStatement("delete from personalinfo where id=? and where customerName=?");
+			ps = con.prepareStatement("delete from personalinfo where mobileNumber=? and where serialNumber=?");
 			
-			ps.setInt(1,id);
-			ps.setString(2,customerName);
+			ps.setString(1,mobileNumber);
+			ps.setString(2,serialNumber);
 			
 			status=ps.executeUpdate();
 			
@@ -67,7 +64,7 @@ public class InformationDBAccess {
 		
 	}
 	
-	public List<PersonalInfo> getAllUser(){
+	public static List<PersonalInfo> getAllUser(){
 		
 		List<PersonalInfo> list=new ArrayList();
 		
